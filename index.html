@@ -3992,7 +3992,7 @@
     </div>
 
     <!-- Certificate Lightbox Modal Window (Top Level Pop-up Above All Content) -->
-    <div id="cert-lightbox-modal" class="fixed inset-0 hidden items-center justify-center p-4 bg-black/85 backdrop-blur-md transition-all duration-300 opacity-0 pointer-events-none" style="position: fixed !important; inset: 0 !important; z-index: 9999999 !important; backdrop-filter: blur(12px) !important; background-color: rgba(0,0,0,0.85) !important;">
+    <div id="cert-lightbox-modal" class="fixed inset-0 hidden items-center justify-center p-4 bg-black/85 backdrop-blur-md transition-all duration-300 opacity-0 pointer-events-none" style="display: none !important; position: fixed !important; inset: 0 !important; z-index: 9999999 !important; backdrop-filter: blur(12px) !important; background-color: rgba(0,0,0,0.85) !important;">
       <div id="cert-modal-card" class="relative w-full max-w-[520px] bg-[#080d1a] border border-cyan-500/40 rounded-3xl p-5 sm:p-7 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.95)] transform scale-95 transition-all duration-300 my-auto" style="position: relative !important; max-width: 520px !important; width: 100% !important; background-color: #080d1a !important; border: 1px solid rgba(6,182,212,0.4) !important; border-radius: 1.5rem !important; z-index: 10000000 !important;">
         
         <!-- Close Button (Top Right Positioned Circular Button) -->
@@ -4014,8 +4014,6 @@
           <img id="cert-modal-image" src="/images/cert-route-preview.jpg" alt="Certificate Preview" class="w-full h-auto max-h-[50vh] object-contain rounded-xl shadow-lg" />
         </div>
 
-
-
       </div>
     </div>
 
@@ -4035,6 +4033,7 @@
           modalImg.src = finalImg;
           document.body.style.overflow = 'hidden';
 
+          modal.style.setProperty('display', 'flex', 'important');
           modal.classList.remove('hidden');
           modal.classList.add('flex');
           setTimeout(() => {
@@ -4058,6 +4057,7 @@
           setTimeout(() => {
             modal.classList.remove('flex');
             modal.classList.add('hidden');
+            modal.style.setProperty('display', 'none', 'important');
             document.body.style.overflow = '';
           }, 300);
         }
