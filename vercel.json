@@ -1,14 +1,24 @@
 {
-  "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
-  "routes": [
+  "headers": [
     {
-      "handle": "filesystem"
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
     },
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(css|js|assets|images|imgs)/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
   ]
 }
